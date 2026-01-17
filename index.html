@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonta Supermarket - Groceries, Appliances & Essentials</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Bonta Supermarket</h1>
+            <div class="cart">
+                <div class="cart-wrapper">
+                    <span id="cart-count" class="cart-icon">🛒 Cart (0)</span>
+                    <div id="cart-dropdown" class="cart-dropdown">
+                        <div class="cart-items">
+                            <p class="empty-cart">Your cart is empty</p>
+                        </div>
+                        <div class="cart-total">
+                            <strong>Total: <span id="cart-total">₦0</span></strong>
+                        </div>
+                        <button class="view-cart-btn">View Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Groceries, Drinks, Appliances, Toys & Everyday Essentials Delivered Fast</h2>
+            <p>Shop online or visit our physical store for drinks, groceries, kitchen appliances, cleaning supplies, kids' toys, toiletries, household items & much more!</p>
+            <button class="shop-now">Start Shopping</button>
+        </div>
+    </section>
+
+    <section class="products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <div class="product-grid">
+                <!-- Drink: Coca-Cola -->
+                <div class="product-card">
+                    <img src="https://www.coca-cola.com/content/dam/onexp/us/en/brands/coca-cola/products/creamy-vanilla-product-shot-tile.png" alt="Coca-Cola">
+                    <h3>Coca-Cola (Pack)</h3>
+                    <p class="price">₦3,500</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <!-- Drink: Orange Juice -->
+                <div class="product-card">
+                    <img src="https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/photos/81d2e8d8-73e6-4577-aba7-1e1484d4fb3c-retina-large-jpeg" alt="Orange Juice Carton">
+                    <h3>Orange Juice (Large Carton)</h3>
+                    <p class="price">₦2,500</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <!-- Groceries: Rice -->
+                <div class="product-card">
+                    <img src="https://st3.depositphotos.com/1050401/14111/i/1600/depositphotos_141115554-stock-photo-rice-packaging-in-a-store.jpg" alt="Bag of Rice">
+                    <h3>Premium Rice (5kg)</h3>
+                    <p class="price">₦9,500</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <!-- Appliance: Blender -->
+                <div class="product-card">
+                    <img src="https://images.ctfassets.net/ysk73m19lyh8/30yOmjL8wQqjk9HEkeeCdO/e63d6debced717e4cb652bd8ab9094f7/90217_BellaPro_BestBuy_KitchenSystem_Oatmilk_14.JPG?q=80&w=1200&h=630&fit=scale" alt="Kitchen Blender">
+                    <h3>High-Power Blender</h3>
+                    <p class="price">₦45,000</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <!-- Appliance: Microwave -->
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/61m-OVkLMgL._AC_UF894,1000_QL80_.jpg" alt="Microwave Oven">
+                    <h3>Compact Microwave Oven</h3>
+                    <p class="price">₦85,000</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <!-- Cleaning: Detergent -->
+                <div class="product-card">
+                    <img src="https://www.shutterstock.com/image-illustration/detergent-bottles-containers-cleaning-supplies-260nw-566567176.jpg" alt="Laundry Detergent">
+                    <h3>Laundry Detergent (Large)</h3>
+                    <p class="price">₦8,500</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <!-- Toy: Kids Car -->
+                <div class="product-card">
+                    <img src="http://www.magiccars.com/cdn/shop/products/kids-luxury-ride-on-car-orange-lamborghini-gallardo-12v-electric-toy-33719847715047.jpg?v=1752768731" alt="Kids Toy Car">
+                    <h3>Kids Electric Ride-On Car</h3>
+                    <p class="price">₦250,000</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <!-- Toiletries: Shampoo -->
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/51ecvgSksOL._AC_UF1000,1000_QL80_.jpg" alt="Shampoo Bottle">
+                    <h3>Shampoo & Conditioner Set</h3>
+                    <p class="price">₦5,500</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <span class="category-icon">🥤</span>
+                    <h3>Drinks</h3>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🛒</span>
+                    <h3>Groceries</h3>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🔌</span>
+                    <h3>Appliances</h3>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🧸</span>
+                    <h3>Toys</h3>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🧼</span>
+                    <h3>Cleaning Supplies</h3>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🛁</span>
+                    <h3>Toiletries</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>Bonta Supermarket</h3>
+                    <p>Your trusted one-stop shop — online and in-store — for all your everyday needs in Nigeria.</p>
+                    <p>Fast delivery • Great prices • Quality products • Walk-in welcome!</p>
+                </div>
+                <div class="footer-right">
+                    <p><strong>Contact Us:</strong> support@bontasupermarket.com</p>
+                    <p><strong>Phone:</strong> +234 913 899 9084</p>
+                    <p>&copy; 2026 Bonta Supermarket. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
