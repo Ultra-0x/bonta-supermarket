@@ -1,5 +1,3 @@
-// Bonta Supermarket - Cart + Category Filtering + Search + Checkout Alert
-
 let cart = [];
 
 const cartDisplay = document.getElementById('cart-count');
@@ -24,7 +22,6 @@ const categoryMap = {
     'Toiletries': ['Shampoo & Conditioner Set']
 };
 
-// Update Cart Display
 function updateCartDisplay() {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -60,7 +57,6 @@ function updateCartDisplay() {
     attachQuantityListeners();
 }
 
-// Quantity & Delete Listeners
 function attachQuantityListeners() {
     document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
         btn.onclick = () => {
@@ -90,7 +86,6 @@ function attachQuantityListeners() {
     });
 }
 
-// Add to Cart
 addToCartButtons.forEach(button => {
     button.addEventListener('click', () => {
         const card = button.closest('.product-card');
@@ -108,7 +103,6 @@ addToCartButtons.forEach(button => {
 
         updateCartDisplay();
 
-        // Button feedback
         const orig = button.textContent;
         button.textContent = 'Added!';
         button.style.backgroundColor = '#28a745';
@@ -121,7 +115,7 @@ addToCartButtons.forEach(button => {
     });
 });
 
-// Search Functionality
+// Search
 const performSearch = () => {
     const query = searchInput.value.trim().toLowerCase();
     allProductCards.forEach(card => {
@@ -131,10 +125,7 @@ const performSearch = () => {
 };
 
 searchBtn.addEventListener('click', performSearch);
-searchInput.addEventListener('keyup', e => {
-    if (e.key === 'Enter') performSearch();
-    else performSearch(); // Live search as you type
-});
+searchInput.addEventListener('input', performSearch); // Live search
 
 // Category Filtering
 let activeCategory = null;
@@ -157,7 +148,7 @@ categoryCards.forEach(card => {
     });
 });
 
-// View Cart Alert
+// View Cart
 viewCartBtn.addEventListener('click', () => {
     if (cart.length === 0) {
         alert('Your cart is empty!');
