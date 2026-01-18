@@ -1,3 +1,5 @@
+// Bonta Supermarket - Final Fixes: Mobile Cart + Live Search
+
 let cart = [];
 
 const cartDisplay = document.getElementById('cart-count');
@@ -22,6 +24,7 @@ const categoryMap = {
     'Toiletries': ['Shampoo & Conditioner Set']
 };
 
+// Update Cart Display
 function updateCartDisplay() {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -86,36 +89,45 @@ function attachQuantityListeners() {
     });
 }
 
+// Add to Cart - Works on Mobile (touch + click)
+function handleAddToCart(e) {
+    e.preventDefault(); // Prevents issues on mobile
+    const button = e.target.closest('.add-to-cart');
+    if (!button) return;
+
+    const card = button.closest('.product-card');
+    const name = card.querySelector('h3').textContent;
+    const priceText = card.querySelector('.price').textContent;
+    const price = parseInt(priceText.replace('₦', '').replace(',', ''));
+    const img = card.querySelector('img').src;
+
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({ name, price, quantity: 1, img });
+    }
+
+    updateCartDisplay();
+
+    // Button feedback
+    const orig = button.textContent;
+    button.textContent = 'Added!';
+    button.style.backgroundColor = '#28a745';
+    button.disabled = true;
+    setTimeout(() => {
+        button.textContent = orig;
+        button.style.backgroundColor = '#FF6600';
+        button.disabled = false;
+    }, 1200);
+}
+
 addToCartButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const card = button.closest('.product-card');
-        const name = card.querySelector('h3').textContent;
-        const priceText = card.querySelector('.price').textContent;
-        const price = parseInt(priceText.replace('₦', '').replace(',', ''));
-        const img = card.querySelector('img').src;
-
-        const existing = cart.find(item => item.name === name);
-        if (existing) {
-            existing.quantity++;
-        } else {
-            cart.push({ name, price, quantity: 1, img });
-        }
-
-        updateCartDisplay();
-
-        const orig = button.textContent;
-        button.textContent = 'Added!';
-        button.style.backgroundColor = '#28a745';
-        button.disabled = true;
-        setTimeout(() => {
-            button.textContent = orig;
-            button.style.backgroundColor = '#FF6600';
-            button.disabled = false;
-        }, 1200);
-    });
+    button.addEventListener('click', handleAddToCart);
+    button.addEventListener('touchstart', handleAddToCart); // Mobile fix
 });
 
-// Search
+// Live Search
 const performSearch = () => {
     const query = searchInput.value.trim().toLowerCase();
     allProductCards.forEach(card => {
@@ -125,7 +137,10 @@ const performSearch = () => {
 };
 
 searchBtn.addEventListener('click', performSearch);
-searchInput.addEventListener('input', performSearch); // Live search
+searchInput.addEventListener('input', performSearch); // Live as you type
+searchInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') performSearch();
+});
 
 // Category Filtering
 let activeCategory = null;
@@ -148,7 +163,7 @@ categoryCards.forEach(card => {
     });
 });
 
-// View Cart
+// View Cart Alert
 viewCartBtn.addEventListener('click', () => {
     if (cart.length === 0) {
         alert('Your cart is empty!');
